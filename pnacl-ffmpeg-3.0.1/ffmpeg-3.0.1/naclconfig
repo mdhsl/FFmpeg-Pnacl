@@ -1,0 +1,68 @@
+#!/bin/sh
+
+export CFLAGS="-I$NACL_SDK_ROOT/include -I$NACL_SDK_ROOT/include/pnacl"
+export CC="$NACL_SDK_ROOT/toolchain/linux_pnacl/bin/pnacl-clang"
+export AR="$NACL_SDK_ROOT/toolchain/linux_pnacl/bin/pnacl-ar"
+export LD="$NACL_SDK_ROOT/toolchain/linux_pnacl/bin/pnacl-ar"
+export RANLIB="$NACL_SDK_ROOT/toolchain/linux_pnacl/bin/pnacl-ranlib"
+export CPPFLAGS="-I$NACL_SDK_ROOT/toolchain/linux_pnacl/le32-nacl/usr/include"
+export LDFLAGS="-L$NACL_SDK_ROOT/lib/pnacl/Release -L$NACL_SDK_ROOT/toolchain/linux_pnacl/le32-nacl/usr/lib"
+export PKG_CONFIG_LIBDIR="$NACL_SDK_ROOT/toolchain/linux_pnacl/le32-nacl/usr/lib/pkgconfig"
+export PATH=$NACL_SDK_ROOT/toolchain/linux_pnacl/bin:$PATH
+
+export CC=pnacl-clang
+export CXX=pnacl-clang++
+export AR=pnacl-ar
+export RANLIB=pnacl-ranlib
+export READELF=pnacl-readelf
+export CFLAGS=
+export CPPFLAGS="-I$NACL_SDK_ROOT/include -I$NACL_SDK_ROOT/include/ppapi_simple -I$NACL_SDK_ROOT/toolchain/include -I$NACL_SDK_ROOT/toolchain/toolchain/linux_pnacl/le32-nacl/usr/include"
+export CXXFLAGS=
+export LDFLAGS="-L$NACL_SDK_ROOT/lib/pnacl/Release -L$NACL_SDK_ROOT/toolchain/linux_pnacl/le32-nacl/usr/lib"
+export AR_FLAGS=cr
+export PKG_CONFIG_LIBDIR="$NACL_SDK_ROOT/toolchain/linux_pnacl/le32-nacl/usr/lib/pkgconfig"
+
+./configure \
+    --target-os=linux \
+    --arch=pnacl \
+    --disable-runtime-cpudetect \
+    --prefix="$NACL_SDK_ROOT/toolchain/linux_pnacl/le32-nacl/usr" \
+    --cross-prefix=pnacl- \
+    --cc=pnacl-clang \
+    --ld=pnacl-clang++ \
+    --pkg_config=pkg-config \
+    --enable-gpl \
+    --enable-static \
+    --disable-shared \
+    --enable-incompatible-libav-abi \
+    --enable-cross-compile \
+    --disable-ffplay \
+    --enable-ffprobe \
+    --disable-ffserver \
+    --disable-asm \
+    --disable-inline-asm \
+    --disable-indevs \
+    --disable-protocols \
+    --disable-network \
+    --disable-protocol=file \
+    --disable-demuxer=rtsp \
+    --disable-demuxer=image2 \
+    --disable-doc \
+    --disable-htmlpages \
+    --disable-manpages \
+    --disable-podpages \
+    --disable-txtpages \
+    --disable-network \
+    --extra-libs='-lppapi_simple -lppapi -lppapi_cpp -lnacl_io' \
+    --enable-libx264 \
+    --disable-libx265 \
+    --disable-libvpx \
+    --enable-avformat \
+    --enable-avdevice \
+    --enable-avfilter \
+    --enable-swresample \
+    --enable-pthreads \
+    --enable-avcodec \
+	--enable-avutil \
+	--enable-decoder=h264 
+

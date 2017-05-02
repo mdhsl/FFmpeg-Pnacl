@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <!--
+  Copyright (c) 2013 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+  -->
+<head>
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <script type="text/javascript" src="common.js"></script>
+  <script type="text/javascript" src="example.js"></script>
+  <script type="text/javascript" src="js/vendor/all-in-one/vendor.js"></script>
+  <script type="text/javascript" src="js/osh.js"></script>
+  
+  <style>
+	.nacl {
+		width:1920px !important;;
+		height:1080px !important;
+	}
+  </style>
+</head>
+<body data-name="ffmpeg_decoder" data-tools="pnacl glibc clang-newlib linux" data-configs="Debug Release" data-path="{tc}/{config}">
+  <h2>Status: <code id="statusField">NO-STATUS</code></h2>
+  <div id="log"></div>
+  <div id="listener"></div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "program": {
+    "portable": {
+      "pnacl-translate": {
+        "url": "ffmpeg_decoder.pexe"
+      },
+      "pnacl-debug": {
+        "url": "ffmpeg_decoder_unstripped.bc"
+      }
+    }
+  }
+}

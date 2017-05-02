@@ -1,0 +1,38 @@
+#!/bin/sh
+
+export CFLAGS="-I$NACL_SDK_ROOT/include -I$NACL_SDK_ROOT/include/pnacl"
+export CC="$NACL_SDK_ROOT/toolchain/linux_pnacl/bin/pnacl-clang"
+export AR="$NACL_SDK_ROOT/toolchain/linux_pnacl/bin/pnacl-ar"
+export LD="$NACL_SDK_ROOT/toolchain/linux_pnacl/bin/pnacl-ar"
+export RANLIB="$NACL_SDK_ROOT/toolchain/linux_pnacl/bin/pnacl-ranlib"
+export CPPFLAGS="-I$NACL_SDK_ROOT/toolchain/linux_pnacl/le32-nacl/usr/include"
+export LDFLAGS="-L$NACL_SDK_ROOT/lib/pnacl/Release -L$NACL_SDK_ROOT/toolchain/linux_pnacl/le32-nacl/usr/lib"
+export PKG_CONFIG_LIBDIR="$NACL_SDK_ROOT/toolchain/linux_pnacl/le32-nacl/usr/lib/pkgconfig"
+export PATH=$NACL_SDK_ROOT/toolchain/linux_pnacl/bin:$PATH
+
+export CC=pnacl-clang
+export CXX=pnacl-clang++
+export AR=pnacl-ar
+export RANLIB=pnacl-ranlib
+export READELF=pnacl-readelf
+export CFLAGS=
+export CPPFLAGS=
+export CXXFLAGS=
+export LDFLAGS=
+export AR_FLAGS=cr
+
+echo "CPPFLAGS=${CPPFLAGS}"
+echo "CFLAGS=${CFLAGS}"
+echo "CXXFLAGS=${CXXFLAGS}"
+echo "LDFLAGS=${LDFLAGS}"
+
+./configure \
+    --prefix="$NACL_SDK_ROOT/toolchain/linux_pnacl/le32-nacl/usr" \
+    --cross-prefix=pnacl- \
+    --disable-asm \
+    --disable-opencl \
+    --disable-cli \
+    --disable-avs \
+    --enable-static \
+    --disable-asm \
+    --enable-strip
